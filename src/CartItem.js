@@ -1,6 +1,6 @@
 import React from "react";
 
-class CartItem extends React.Component{
+const CartItem = (props) =>{
     // constructor(){
     //     super();
 // //!state is an object which contains the property of a specific item
@@ -64,20 +64,20 @@ class CartItem extends React.Component{
    //!note in second form if the set state is called multiple times it is called in
    //! the form of queue, if called multiple times it will call upto the no of times
    //!** note in promises the set state works as synchronous call and it does'nt performs batching when it is called multiple times in promise
-    render(){ 
+    
         // const{price,title,qty} = this.state;
-        console.log(this.props);
-         const{price,title,qty} = this.props.product;
+        console.log(props);
+         const{price,title,qty} = props.product;
          const{
             product,
             onIncreaseQuantity,
             onDecreaseQuantity,
             onDeleteProduct
-         } = this.props;
+         } = props;
         return(
            <div className="cart-item ">
             <div className="left-block">
-                <img style={styles.image}/>
+                <img style={styles.image} src={product.img}/>
             </div>
             <div className="right-block">
                 <div style={{fontSize : 25}}>{title}</div>
@@ -109,7 +109,6 @@ class CartItem extends React.Component{
         );
 
         
-    }
     
 }
 
